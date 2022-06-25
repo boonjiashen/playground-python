@@ -41,6 +41,9 @@ def _field(*args, **kwargs):
 def fieldsclass(clazz: type):
     """Decorates a class into a collection of fields, and optionally the values of those fields
 
+    If values of the fields are supplied, `<CLAZZ>.<FIELD>.values` exposes the set of possible values,
+    while `<CLAZZ>.<FIELD>.val.<VALUE>` exposes each individual value. See usage below.
+
     Useful to avoid repeating the same strings in the codebase, allows catching typos at
     test time as long as code coverage is high.
 
@@ -48,10 +51,14 @@ def fieldsclass(clazz: type):
 
     >>> @fieldsclass
     ... class F:
+    ...     Buckets = fieldsclass.field()  # field without values
+    ...     Name = fieldsclass.field()
     ...     Status = fieldsclass.field(values=["Succeeded", "Failed"])
-    ...     result = fieldsclass.field()
     ...     platform = fieldsclass.field(values=["arm64", "amd64"])
     ...
+    >>> import boto3
+    >>> boto3.client('s3').list_buckets()[F.Buckets][0][F.Name]
+    'aws-sam-cli-managed-default-samclisourcebucket-zswqxc26ktei'
     >>> F.Status
     'Status'
     >>> F.Status.values
@@ -60,8 +67,6 @@ def fieldsclass(clazz: type):
     'Succeeded'
     >>> F.Status.val.Failed
     'Failed'
-    >>> F.result
-    'result'
     >>> F.result.values
     Traceback (most recent call last):
       File "<ipython-input-45-eeaf69024f6d>", line 1, in <module>
