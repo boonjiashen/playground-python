@@ -1,0 +1,50 @@
+{
+  "school": "Springfield High",
+  "department": "Science",
+  "teachers": [
+    {
+      "name": "Alice Walker",
+      "email": "alice.walker@springfield.edu",
+      "students": [
+        {
+          "name": "Bobby Tables",
+          "email": "bobby.tables@students.springfield.edu",
+          "grades": [
+            { "subject": "Biology", "score": 88 },
+            { "subject": "Chemistry", "score": 91 }
+          ]
+        },
+        {
+          "name": "Carla Mendez",
+          "email": "carla.mendez@students.springfield.edu",
+          "grades": [
+            { "subject": "Biology", "score": 76 },
+            { "subject": "Chemistry", "score": 82 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "David Kim",
+      "email": "david.kim@springfield.edu",
+      "students": [
+        {
+          "name": "Erin O'Neil",
+          "email": "erin.oneil@students.springfield.edu",
+          "grades": [
+            { "subject": "Physics", "score": 95 },
+            { "subject": "Math", "score": 89 }
+          ]
+        },
+        {
+          "name": "Frank Wong",
+          "email": "frank.wong@students.springfield.edu",
+          "grades": [
+            { "subject": "Physics", "score": 67 },
+            { "subject": "Math", "score": 73 }
+          ]
+        }
+      ]
+    }
+  ]
+}
