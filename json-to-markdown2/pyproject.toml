@@ -1,10 +1,13 @@
 [project]
 name = "json-to-markdown2"
 version = "0.1.0"
-description = "Convert nested JSON documents into readable Markdown"
+description = "Convert nested JSON documents into Markdown using pandas"
 readme = "README.md"
-requires-python = ">=3.9"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "tabulate>=0.9",
+]
 
 [project.scripts]
 json-to-markdown2 = "json_to_markdown:main"
